@@ -5,15 +5,15 @@ public class Qes9 {
 	    public static void main(String[] args) {
 	        // 初期値を設定
 	        String name = "鈴木一郎";
-	        int age = 18;
-	        double height = 170.5;
-	        double weight = 62.2;
+	        int age = 24;
+	        double height = 168.5;
+	        double weight = 64.2;
 	        String food = "オムライス";
 
 	        // 数値を和算で自己代入
-	        age += 30;          // 18 + 30 = 48
-	        height += 166.5;    // 170.5 + 166.5 = 337.0
-	        weight += 66.2;     // 62.2 + 66.2 = 128.4
+	        age += 14;          // 24 + 30 = 48
+	        height += 166.5;    // 168.5 + 168.5 = 337.0
+	        weight += 64.2;     // 64.2 + 64.2 = 128.4
 
 	        // 自己紹介
 	        System.out.println("初めまして" + name + "です");
