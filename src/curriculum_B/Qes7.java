@@ -1,31 +1,41 @@
 package curriculum_B;
+import java.util.Scanner;
 
-import java.util.Random;
 
 public class Qes7 {
-	public static void main(String[] args) {
-		 String input = "パソコン、冷蔵庫、扇風機、洗濯機、加湿器、テレビ、ディスプレイ、その他商品";
-	        String[] products = input.split("、");
-	        Random random = new Random();
+   public static void main(String[] args) {
+     Scanner sc = new Scanner(System.in);
 
-	        for (String product : products) {
-	            int stock = random.nextInt(12); // 0-11
-	            switch (product) {
-	                case "テレビ":
-	                case "ディスプレイ":
-	                    int remaining = product.equals("ディスプレイ") ? 11 - stock : stock;
-	                    System.out.println(product + "の残り台数は" + remaining + "台です");
-	                    break;
-	                case "パソコン":
-	                case "冷蔵庫":
-	                case "扇風機":
-	                case "洗濯機":
-	                case "加湿器":
-	                    System.out.println(product + "の残り台数は" + stock + "台です");
-	                    break;
-	                default:
-	                    System.out.println("『" + product + "』は指定の商品ではありません");
-	            }
-	        }
-	    }
-	}
+
+          System.out.print("生徒の人数を入力してください(2 以上): ");
+          int n = sc.nextInt();
+
+          double[][] scores = new double[n][4];
+          String[] subjects = {"英語", "数学", "理科", "社会"};
+
+           for (int i = 0; i < n; i++) {
+               for (int j = 0; j < 4; j++) {
+                    System.out.printf("%d人目の『%s』の点数を入力してください: ", i + 1, subjects[j]);
+                    scores[i][j] = sc.nextDouble();
+               }
+           }
+  
+
+           for (int i = 0; i < n; i++) {
+                double avg = (scores[i][0] + scores[i][1] + scores[i][2] + scores[i][3]) / 4.0;
+                System.out.printf("%d人目の平均点は %.2f 点です。%n", i + 1, avg);
+           }
+
+
+           double total = 0;
+                  for (int j = 0; j < 4; j++) {
+                      double sum = 0;
+                  for (int i = 0; i < n; i++) sum += scores[i][j];
+                      double avg = sum / n;
+                      total += sum;
+           System.out.printf("%sの平均点は %.2f 点です。%n", subjects[j], avg);
+           }
+
+           System.out.printf("全体の平均点は %.2f 点です。%n", total / (n * 4));
+           }
+       }
